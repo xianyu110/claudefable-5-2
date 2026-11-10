@@ -1,4 +1,4 @@
-# 彻夜长测Claude Fable 5.2：单次提示词跑满两小时，它的工程与视觉上限到底在哪
+# ClaudeFable五点二刚刚上线！
 
 国内使用渠道：https://claude-opus.top/
 
@@ -6,7 +6,7 @@
 
 凌晨 3 点整，Claude Fable 5.2 没有任何前摇，全平台同步推流。我顺手拉开桌面客户端，模型切换列表里已经赫然在列。同一时间对家还在热火朝天地兜售 200 刀的掌机硬件；上周按住口碑极佳的 .2 Sol 迟迟不放，眼下的场面多少有点耐人寻味。
 
-!Claude 桌面端已出现 Fable 5.2 https://upload.maynor1024.live/file/1794273304310_00.png
+![Claude 桌面端已出现 Fable 5.2](https://upload.maynor1024.live/file/1794273304310_00.png)
 
 权益方面，官方这次给 20 刀的 Pro 订户开了为期一周的 Fable 5.2 尝鲜窗口。
 
@@ -14,11 +14,11 @@
 
 我的账户也准时到账了。
 
-!Ultra 额度重置通知 https://upload.maynor1024.live/file/1794273308378_01.png
+![Ultra 额度重置通知](https://upload.maynor1024.live/file/1794273308378_01.png)
 
 大家可以先看一下我起跑时的状态：作为 200 刀的 Ultra 账户，在正式发起 Fable 5.2 压力实测前，全局额度还剩余 30%。
 
-!测试前额度剩余约 30% https://upload.maynor1024.live/file/1794273302621_04.png
+![测试前额度剩余约 30%](https://upload.maynor1024.live/file/1794273302621_04.png)
 
 过去一个半月里，我日常几乎完全泡在 Claude Opus 5.5 上。原本大家普遍预期新迭代会直接叫 Claude Fable 5.5，最后官方定名落在了 Claude Fable 5.2。
 
@@ -34,13 +34,19 @@ Claude Fable 5.2 维持了 1M（100 万 Token）超长上下文窗口，单次�
 
 到了 Fable 5.2，直接降为输入 8 美元、输出 40 美元，缓存调用同样同幅折让，整套 API 账单直接便宜了 20%。
 
-横向对比各家旗舰基座的成本线，分布情况如下。
+横向对比各家旗舰基座的成本线，分布情况如下。也可以直接看下面这张价目表（单位：每百万 Token）。
 
-!Anthropic 主力模型价格对比 https://upload.maynor1024.live/file/1794273304978_02.png
+| 模型 | 普通输入 | 5 分钟缓存写入 | 1 小时缓存写入 | 缓存读取 | 输出 |
+| --- | --- | --- | --- | --- | --- |
+| Claude Opus 5.5 | $4 | $5 | $8 | $0.20 | $20 |
+| Claude Fable 5.1 | $10 | $12.50 | $20 | $0.25 | $50 |
+| Claude Fable 5.2 | $8 | $10 | $16 | $0.20 | $40 |
 
-!Fable 5.2 价格与规格说明 https://upload.maynor1024.live/file/1794273300404_03.png
+![Anthropic 主力模型价格对比](https://upload.maynor1024.live/file/1794273304978_02.png)
 
-!规格补充说明 https://upload.maynor1024.live/file/1794273304272_05.png
+![Fable 5.2 价格与规格说明](https://upload.maynor1024.live/file/1794273300404_03.png)
+
+![规格补充说明](https://upload.maynor1024.live/file/1794273304272_05.png)
 
 吞吐响应上也有改善，官方数据显示极端场景下最多比 Fable 5.1 提速 30%。提升幅度不算惊人，但用起来还是能感觉到 等待少了一点。
 
@@ -48,7 +54,7 @@ Claude Fable 5.2 维持了 1M（100 万 Token）超长上下文窗口，单次�
 
 我自己上手后极有好感的一个变化，是它全面继承了 Opus 5.5 那种通透的人性化表达。老版 Fable 5.1 动不动就像早期的 Opus 5 一样狂堆晦涩黑话，读起来极其生硬；后来 Opus 5.5 彻底扭转了沟通语感，把对话调优成了真正给人类干活的口吻，这套成熟的表达机制在 Fable 5.2 上得到了完美保留。
 
-!Fable 5.2 回复风格示例 https://upload.maynor1024.live/file/1794273301850_07.png
+![Fable 5.2 回复风格示例](https://upload.maynor1024.live/file/1794273301850_07.png)
 
 不过细看它的回复，那种源于顶级算力的架构师傲气依然非常明显。
 
@@ -68,15 +74,33 @@ Claude： 不是哥们，你这 20 个 Excel 不都是从同一个数据库里�
 
 AA 指数榜单里，它以 65 分直取榜首。
 
-!AA 指数相关 https://upload.maynor1024.live/file/1794273309507_08.png
+![AA 指数相关](https://upload.maynor1024.live/file/1794273309507_08.png)
 
-!AA 指数 65 分登顶 https://upload.maynor1024.live/file/1794273305507_09.png
+![AA 指数 65 分登顶](https://upload.maynor1024.live/file/1794273305507_09.png)
 
 官方公布的综合能力测绘，几乎对同梯队选手形成了全线压制，而且各家厂商里这类标定的水分向来是最低的。
 
-!官方综合跑分 https://upload.maynor1024.live/file/1794273311710_10.png
+![官方综合跑分](https://upload.maynor1024.live/file/1794273311710_10.png)
 
-具体的数字表格我就不逐项念了。
+官方综合跑分表如下（部分项目旁注了 Mythos 5.2 / High effort / 无护栏等测试条件，方法论见 Fable 5.2 与 Mythos 5.2 System Card）。
+
+| 评测项 | Fable 5.2 | Fable 5.1 | Opus 5.5 | GPT-6 Astra | Gemini 4 Carbon |
+| --- | --- | --- | --- | --- | --- |
+| Agentic coding（FrontierCode 2.0） | 49.1%（Xhigh） | 32.4%（Xhigh） | 45.5% | 42.8% | 41.1%（Medium） |
+| Agentic coding（FrontierSWE v2） | 69.9% | 56.3% | 62.3% | 65.5% | 61.2% |
+| Business workflows（AutomationBench） | 51.4% | 31.4% | 42.5% | 41.4% | 53.9% |
+| Agentic scientific research（Terminal-Bench-Science 0.1） | 74.6%（Mythos 5.2 为 75.3%） | 52.6% | 58.7% | 68.1% | 64.8% |
+| Cybersecurity（CyScenarioBench） | 76.3%（Mythos 5.2） | 61.7%（Mythos 5.1） | 67.6%（无护栏） | 61%（GPT-6 Cyber） | — |
+| Cybersecurity（CVE Rediscovery） | 89.6%（Mythos 5.2） | 78.3%（Mythos 5.1） | 81.3%（无护栏） | — | — |
+| Protein design（De novo binder，24 小时） | 85.1%（Mythos 5.2） | 79.1%（Mythos 5.1） | 82.6%（无护栏） | — | — |
+| Agentic search（WANDR，relaxed） | 82.1% | 68.7% | 72.3% | — | — |
+| Computer use（OSWorld 2.1，offline partial） | 89.3% | 83.5% | 87.2% | 79.5% | 81.5% |
+| Robotics（RoboDojo Sim） | 64.9% | 27.6% | 39.4% | 29.8% | — |
+| Knowledge work（AA-Briefcase v1.1，rubric） | 66.1% | 61.5% | 61.2% | 52.0% | 61.8% |
+| Knowledge work（Elo） | 1785 | 1669 | 1800 | 1569 | 1611 |
+| Knowledge work（Remote Labor Index，High effort） | 41.3% | 17.9% | 21.3% | 20.8% | — |
+| Multidisciplinary reasoning（Humanity's Last Exam，with tools） | 74.2% | 65.6% | 67.7% | 57.2% | — |
+| Visual chart recognition（Chartography，no tools） | 73.4% | 44.8% | 64.4% | 71.0% | 72.5% |
 
 团队还同步公开了一项极其夸张的工程级实验：让 Fable 5.2 从零初始化一个现代操作系统原型。没有预设脚手架，系统并发调度了 1000 多个子智能体，在长达八天八夜的闭环周期内自主推进编码、单元测试和 Code Review。最终产出的系统真切地在笔记本实体机上点亮启动，内建自主微内核、块存储与网卡输入驱动、持久化文件树、窗口管理器、鉴权登录及整套安装程序，顺便封装了完整的 Claude 调用套件。
 
@@ -94,9 +118,9 @@ AA 指数榜单里，它以 65 分直取榜首。
 
 提示词提交后，模型进入了深层执行。近 1 小时的连续构筑后，它给出了这样一份交付结果：
 
-!ChatGPT 四周年致敬动效预览 https://upload.maynor1024.live/file/1794273323110_11.gif
+![ChatGPT 四周年致敬动效预览](https://upload.maynor1024.live/file/1794273323110_11.gif)
 
-!视频相关说明 https://upload.maynor1024.live/file/1794273312457_12.png
+![视频相关说明](https://upload.maynor1024.live/file/1794273312457_12.png)
 
 看完成品整个人被震撼得说不出话。
 
@@ -108,7 +132,7 @@ AA 指数榜单里，它以 65 分直取榜首。
 
 随后，我又布置了第二道题目：要求它把 DeepSeek 发布的 Super-agent 架构文章提炼为动态解说短片。
 
-!DeepSeek Super-agent 讲解视频 https://upload.maynor1024.live/file/1794273311871_13.png
+![DeepSeek Super-agent 讲解视频](https://upload.maynor1024.live/file/1794273311871_13.png)
 
 由于 DeepSeek 的品牌主色落在 AI 里常见的蓝色上，片子难免还带一点工业感，但动效的细腻程度比 Opus 5.5 又往前走了一大截。以前 Opus 5.5 也能做出相近效果，往往要来回聊很多轮；这次是一句需求直接出片。
 
@@ -116,25 +140,25 @@ AA 指数榜单里，它以 65 分直取榜首。
 
 镜头语言极其成熟，完全脱离了粗糙的模板拼贴感。
 
-!讲解视频细节 https://upload.maynor1024.live/file/1794273306575_14.png
+![讲解视频细节](https://upload.maynor1024.live/file/1794273306575_14.png)
 
-!Super-Agent 文字出场 https://upload.maynor1024.live/file/1794273309102_15.png
+![Super-Agent 文字出场](https://upload.maynor1024.live/file/1794273309102_15.png)
 
 接下来是更高维度的图形试炼：调用 Three.js 搭建纯浏览器渲染的 3D 原生空间。
 
 Prompt 输入指令如下：
 
-!Three.js Prompt 截图 https://upload.maynor1024.live/file/1794273310294_20.png
+![Three.js Prompt 截图](https://upload.maynor1024.live/file/1794273310294_20.png)
 
 后台进程拉开后，Fable 5.2 进入长时间运算。几十分钟后当思考日志开始回传中间帧截图时，那种高级的光影控制力就已经显露无遗。
 
 这是完全由浏览器底层代码着色、不借助任何外部三维模型的纯代码渲染帧：
 
-!Three.js 静态帧 1 https://upload.maynor1024.live/file/1794273307942_16.png
+![Three.js 静态帧 1](https://upload.maynor1024.live/file/1794273307942_16.png)
 
-!Three.js 静态帧 2 https://upload.maynor1024.live/file/1794273307445_17.png
+![Three.js 静态帧 2](https://upload.maynor1024.live/file/1794273307445_17.png)
 
-!Three.js 静态帧 3 https://upload.maynor1024.live/file/1794273316917_18.png
+![Three.js 静态帧 3](https://upload.maynor1024.live/file/1794273316917_18.png)
 
 整套画面的构图与色彩对比度，挑不出廉价的生成痕迹。
 
@@ -142,17 +166,17 @@ Prompt 输入指令如下：
 
 在同个测试流里，它还同步手搓出了一个 3D 体素风格的浮空岛：
 
-!3D 体素浮岛 https://upload.maynor1024.live/file/1794273309399_19.png
+![3D 体素浮岛](https://upload.maynor1024.live/file/1794273309399_19.png)
 
 而整晚最挑战大模型工程极限的，是复原上海 Apple 静安零售店的 3D 建筑场景。
 
 这是我提交的交互式网页开发提示词：
 
-!苹果静安店 Prompt 片段 https://upload.maynor1024.live/file/1794273314544_21.png
+![苹果静安店 Prompt 片段](https://upload.maynor1024.live/file/1794273314544_21.png)
 
-!苹果静安店需求说明 https://upload.maynor1024.live/file/1794273312000_22.png
+![苹果静安店需求说明](https://upload.maynor1024.live/file/1794273312000_22.png)
 
-!任务过程截图 https://upload.maynor1024.live/file/1794273316164_23.png
+![任务过程截图](https://upload.maynor1024.live/file/1794273316164_23.png)
 
 这单个任务硬生生跑了将近两个半小时。
 
@@ -162,11 +186,11 @@ Prompt 输入指令如下：
 
 它甚至会将照片中的重点结构局部放大，核验构件比例：
 
-!查阅参考照片 https://upload.maynor1024.live/file/1794273309455_24.png
+![查阅参考照片](https://upload.maynor1024.live/file/1794273309455_24.png)
 
-!放大查看细节 https://upload.maynor1024.live/file/1794273309787_25.png
+![放大查看细节](https://upload.maynor1024.live/file/1794273309787_25.png)
 
-!大量参考图浏览 https://upload.maynor1024.live/file/1794273311741_26.png
+![大量参考图浏览](https://upload.maynor1024.live/file/1794273311741_26.png)
 
 光是搜集、检索、对比这些图纸级资料，它就足足花了将近一个小时。
 
@@ -178,11 +202,11 @@ Prompt 输入指令如下：
 
 静态渲染视角的截图表现如下：
 
-!苹果静安店 3D 静态效果 https://upload.maynor1024.live/file/1794273318619_27.png
+![苹果静安店 3D 静态效果](https://upload.maynor1024.live/file/1794273318619_27.png)
 
 动态漫游时的多重视角呈现：
 
-!视频/另一视角展示 https://upload.maynor1024.live/file/1794273311854_28.png
+![视频/另一视角展示](https://upload.maynor1024.live/file/1794273311854_28.png)
 
 组里一位建筑学专业出身的同事凑过来扫了一眼，当场脱口而出一句极为地道的国骂。
 
@@ -190,13 +214,13 @@ Prompt 输入指令如下：
 
 左侧为标准视场角，右侧包含广角拉伸：
 
-!与真实室内效果图对比 https://upload.maynor1024.live/file/1794273312991_29.png
+![与真实室内效果图对比](https://upload.maynor1024.live/file/1794273312991_29.png)
 
 虽然受制于纯网页渲染性能无法做到 CG 级逼真，但不管是曲面不锈钢与石材质感的着色分配、空间纵深的比例尺划分，还是柱网分布，全都拿捏得异常精准。
 
 除了室内主厅的完整复原，Fable 5.2 还自作主张地把代码范围延伸到了室外露天的环形下沉式阶梯广场：
 
-!圆形下沉广场细节 https://upload.maynor1024.live/file/1794273319673_30.png
+![圆形下沉广场细节](https://upload.maynor1024.live/file/1794273319673_30.png)
 
 在观感和工程精度上，这已经不是“像那么回事”的级别了。
 
@@ -208,7 +232,7 @@ Prompt 输入指令如下：
 
 而一轮测试结束，水位线被猛推到了 94%。
 
-!额度消耗到约 94% https://upload.maynor1024.live/file/1794273321050_32.png
+![额度消耗到约 94%](https://upload.maynor1024.live/file/1794273321050_32.png)
 
 约 4 小时的连续调用，10 个复合需求，直接啃掉了账号 24% 的额度总池，针对 Fable 的分配用量直接消耗掉了约 50%。
 
@@ -218,7 +242,7 @@ Prompt 输入指令如下：
 
 合理的协作链路应该是由 Fable 5.2 承接系统级拆解、技术选型与全局统筹；把前端实现与视觉调优分流给 Opus 5.5，把底层算法、后端服务编写压给 .2 Sol，这才是目前最平衡的高能效解法。
 
-!模型分工总结 https://upload.maynor1024.live/file/1794273316793_33.jpg
+![模型分工总结](https://upload.maynor1024.live/file/1794273316793_33.jpg)
 
 某种意义上，Fable 5.2 是目前顶级智能助理形态的教科书体现：它像掌控全局的总理大臣，吃透上位者的真实意图后，梳理出严密的任务树，再去调度下属模块分头落地，既压榨出最高产出，又避免无谓挥霍昂贵的算力资源。
 

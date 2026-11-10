@@ -1,4 +1,4 @@
-# 彻夜长测Claude Fable 5.2：单次提示词跑满两小时，它的工程与视觉上限到底在哪
+# ClaudeFable五点二刚刚上线！
 
 国内使用渠道：[https://claude-opus.top/](https://claude-opus.top/)
 
@@ -34,7 +34,13 @@ Claude Fable 5.2 维持了 1M（100 万 Token）超长上下文窗口，单次�
 
 到了 Fable 5.2，直接降为输入 8 美元、输出 40 美元，缓存调用同样同幅折让，整套 API 账单直接便宜了 20%。
 
-横向对比各家旗舰基座的成本线，分布情况如下。
+横向对比各家旗舰基座的成本线，分布情况如下。也可以直接看下面这张价目表（单位：每百万 Token）。
+
+| 模型 | 普通输入 | 5 分钟缓存写入 | 1 小时缓存写入 | 缓存读取 | 输出 |
+| --- | --- | --- | --- | --- | --- |
+| Claude Opus 5.5 | $4 | $5 | $8 | $0.20 | $20 |
+| Claude Fable 5.1 | $10 | $12.50 | $20 | $0.25 | $50 |
+| Claude Fable 5.2 | $8 | $10 | $16 | $0.20 | $40 |
 
 ![Anthropic 主力模型价格对比](https://upload.maynor1024.live/file/1794273304978_02.png)
 
@@ -76,7 +82,25 @@ AA 指数榜单里，它以 65 分直取榜首。
 
 ![官方综合跑分](https://upload.maynor1024.live/file/1794273311710_10.png)
 
-具体的数字表格我就不逐项念了。
+官方综合跑分表如下（部分项目旁注了 Mythos 5.2 / High effort / 无护栏等测试条件，方法论见 Fable 5.2 与 Mythos 5.2 System Card）。
+
+| 评测项 | Fable 5.2 | Fable 5.1 | Opus 5.5 | GPT-6 Astra | Gemini 4 Carbon |
+| --- | --- | --- | --- | --- | --- |
+| Agentic coding（FrontierCode 2.0） | 49.1%（Xhigh） | 32.4%（Xhigh） | 45.5% | 42.8% | 41.1%（Medium） |
+| Agentic coding（FrontierSWE v2） | 69.9% | 56.3% | 62.3% | 65.5% | 61.2% |
+| Business workflows（AutomationBench） | 51.4% | 31.4% | 42.5% | 41.4% | 53.9% |
+| Agentic scientific research（Terminal-Bench-Science 0.1） | 74.6%（Mythos 5.2 为 75.3%） | 52.6% | 58.7% | 68.1% | 64.8% |
+| Cybersecurity（CyScenarioBench） | 76.3%（Mythos 5.2） | 61.7%（Mythos 5.1） | 67.6%（无护栏） | 61%（GPT-6 Cyber） | — |
+| Cybersecurity（CVE Rediscovery） | 89.6%（Mythos 5.2） | 78.3%（Mythos 5.1） | 81.3%（无护栏） | — | — |
+| Protein design（De novo binder，24 小时） | 85.1%（Mythos 5.2） | 79.1%（Mythos 5.1） | 82.6%（无护栏） | — | — |
+| Agentic search（WANDR，relaxed） | 82.1% | 68.7% | 72.3% | — | — |
+| Computer use（OSWorld 2.1，offline partial） | 89.3% | 83.5% | 87.2% | 79.5% | 81.5% |
+| Robotics（RoboDojo Sim） | 64.9% | 27.6% | 39.4% | 29.8% | — |
+| Knowledge work（AA-Briefcase v1.1，rubric） | 66.1% | 61.5% | 61.2% | 52.0% | 61.8% |
+| Knowledge work（Elo） | 1785 | 1669 | 1800 | 1569 | 1611 |
+| Knowledge work（Remote Labor Index，High effort） | 41.3% | 17.9% | 21.3% | 20.8% | — |
+| Multidisciplinary reasoning（Humanity's Last Exam，with tools） | 74.2% | 65.6% | 67.7% | 57.2% | — |
+| Visual chart recognition（Chartography，no tools） | 73.4% | 44.8% | 64.4% | 71.0% | 72.5% |
 
 团队还同步公开了一项极其夸张的工程级实验：让 Fable 5.2 从零初始化一个现代操作系统原型。没有预设脚手架，系统并发调度了 1000 多个子智能体，在长达八天八夜的闭环周期内自主推进编码、单元测试和 Code Review。最终产出的系统真切地在笔记本实体机上点亮启动，内建自主微内核、块存储与网卡输入驱动、持久化文件树、窗口管理器、鉴权登录及整套安装程序，顺便封装了完整的 Claude 调用套件。
 
