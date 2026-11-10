@@ -1,23 +1,8 @@
 # ClaudeFable五点二刚刚上线！
 
-> 原标题：实测Claude Fable 5.2 - 审美与细节的绝对统治。  
-> 来源：[数字生命卡兹克 · 微信公众号](https://mp.weixin.qq.com/s/sKoVHL_oNsik9vtUjr0lHg)  
-> 落地页：本仓库 GitHub Pages（`index.html`）  
-> 作者：卡兹克、AIZ小朱
+大半夜没等来 GPT-6.2 Sol，刚准备睡，飞书群里 AIHOT 小助手忽然弹了一条消息——这下不用睡了。
 
-大半夜的，没等来 GPT-6.2 Sol，刚准备睡。
-
-然后，AIHOT 小助手在飞书群里啪的一下给我弹了个消息。
-
-好的，这下不用睡了。
-
-凌晨 3 点，Claude 终于正式发布了 Claude Fable 5.2。
-
-与此同时，OpenAI 今晚正在卖 200 刀的掌机。
-
-叫你上周不发 GPT-6.2 Sol，明明口碑那么好，这下不尴尬了吗。。。
-
-目前 Claude Fable 5.2 已经在全渠道正式上线，我的 Claude 桌面端里，已经能看到了。
+凌晨 3 点，Claude Fable 5.2 正式全渠道上线；我的 Claude 桌面端里已经能选到它。同一晚 OpenAI 还在推 200 刀掌机——上周拖着不发 GPT-6.2 Sol 的，这下是有点尴尬了。
 
 ![Claude 桌面端已出现 Fable 5.2](https://upload.maynor1024.live/file/1794273304310_00.png)
 
@@ -266,17 +251,3 @@ Fable 5.2，上来第一件事，先是搜关于苹果静安店的报道，这�
 又是一个早晨了，祝大家早安、午安、晚安。
 
 今天，也要对世界，充满好奇～
-
-以上，既然看到这里了，如果觉得不错，随手点个赞、在看、转发三连吧，如果想第一时间收到推送，也可以给我个星标⭐～谢谢你看我的文章，我们，下次再见。
-
----
-
->/ 作者：卡兹克、AIZ小朱
-
->/ 投稿或爆料，请联系邮箱： agent@virxact.com
-
-![文末装饰](https://upload.maynor1024.live/file/1794273312476_34.png)
-
-![作者相关](https://upload.maynor1024.live/file/1794273318429_35.png)
-
-![文末配图](https://upload.maynor1024.live/file/1794273321463_36.jpg)
