@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Claude Fable 5.2 全渠道上线：1M 上下文、降价 20%、误拦截大幅下降，审美与前端细节实测。ClaudeFable五点二刚刚上线！" />
+  <title>ClaudeFable五点二刚刚上线！</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0b10;
+      --bg-soft: #12131a;
+      --card: #171922;
+      --text: #f4f5f8;
+      --muted: #9aa3b5;
+      --accent: #d97757;
+      --accent-2: #c45c3e;
+      --blue: #6ea8ff;
+      --line: rgba(255,255,255,.08);
+      --ok: #3dd68c;
+      --radius: 20px;
+      --shadow: 0 24px 60px rgba(0,0,0,.45);
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Noto Sans SC", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; height: auto; }
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(10,11,16,.75);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 0; gap: 1rem;
+    }
+    .brand { display: flex; align-items: center; gap: .65rem; font-weight: 700; }
+    .brand-mark {
+      width: 32px; height: 32px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), #8b5cf6);
+      display: grid; place-items: center; font-size: .8rem; font-weight: 900;
+    }
+    .nav-links { display: flex; gap: 1.1rem; flex-wrap: wrap; color: var(--muted); font-size: .92rem; }
+    .nav-links a:hover { color: var(--text); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+      padding: .85rem 1.25rem; border-radius: 999px; font-weight: 700;
+      border: 1px solid transparent; transition: .2s ease; white-space: nowrap;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white; box-shadow: 0 10px 30px rgba(217,119,87,.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); filter: brightness(1.05); }
+    .btn-ghost {
+      border-color: var(--line); background: rgba(255,255,255,.03); color: var(--text);
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.2); background: rgba(255,255,255,.06); }
+    .hero {
+      padding: 4.5rem 0 3rem;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: -20% -10% auto;
+      height: 70%; background:
+        radial-gradient(circle at 18% 30%, rgba(217,119,87,.28), transparent 42%),
+        radial-gradient(circle at 82% 12%, rgba(139,92,246,.22), transparent 38%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; gap: 2.5rem; align-items: center;
+      grid-template-columns: 1.05fr .95fr; position: relative;
+    }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      padding: .35rem .75rem; border-radius: 999px;
+      background: rgba(217,119,87,.12); color: #f0c2b2;
+      border: 1px solid rgba(217,119,87,.28); font-size: .85rem; font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(61,214,140,.15); }
+    h1 {
+      font-size: clamp(2rem, 4.6vw, 3.35rem); line-height: 1.18; font-weight: 900;
+      letter-spacing: -.02em; margin-bottom: 1rem;
+    }
+    h1 span {
+      background: linear-gradient(90deg, #fff, #f0b39f 45%, #c4b5fd);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 38rem; margin-bottom: 1.6rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.8rem; }
+    .stats { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .8rem; }
+    .stat {
+      background: rgba(255,255,255,.03); border: 1px solid var(--line);
+      border-radius: 16px; padding: .9rem 1rem;
+    }
+    .stat strong { display: block; font-size: 1.2rem; font-weight: 800; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+    .hero-visual {
+      border-radius: 28px; overflow: hidden; border: 1px solid var(--line);
+      box-shadow: var(--shadow); background: var(--card); position: relative;
+    }
+    .hero-visual img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+    .badge {
+      position: absolute; left: 1rem; bottom: 1rem;
+      background: rgba(0,0,0,.55); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 999px;
+      padding: .45rem .8rem; font-size: .8rem; color: #e8ecf5;
+    }
+    section { padding: 4rem 0; }
+    .section-head { max-width: 42rem; margin-bottom: 2rem; }
+    .section-head h2 {
+      font-size: clamp(1.55rem, 3vw, 2.15rem); line-height: 1.25; margin-bottom: .75rem;
+    }
+    .section-head p { color: var(--muted); }
+    .kicker {
+      color: #f0b39f; font-weight: 700; font-size: .9rem; letter-spacing: .04em;
+      margin-bottom: .55rem;
+    }
+    .pricing {
+      display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr);
+      margin-top: .5rem;
+    }
+    .price-card {
+      background: linear-gradient(180deg, rgba(217,119,87,.12), rgba(255,255,255,.02));
+      border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem 1.25rem;
+    }
+    .price-card strong { font-size: 1.35rem; display: block; margin: .2rem 0 .35rem; }
+    .price-card span { color: var(--muted); font-size: .88rem; }
+    .pill-row { display: flex; flex-wrap: wrap; gap: .55rem; margin: 1.4rem 0 0; }
+    .pill {
+      border: 1px solid var(--line); background: rgba(255,255,255,.03);
+      border-radius: 999px; padding: .4rem .8rem; font-size: .82rem; color: #d5dced;
+    }
+    .feature-banner {
+      border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line);
+      background: #0f1117; margin-bottom: 1.5rem;
+    }
+    .feature-banner img { width: 100%; }
+    .split {
+      display: grid; gap: 1.5rem; grid-template-columns: 1fr 1fr; align-items: stretch;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .card img { width: 100%; }
+    .card-body { padding: 1.25rem 1.35rem 1.5rem; }
+    .card-body h3 { font-size: 1.12rem; margin-bottom: .45rem; }
+    .card-body p { color: var(--muted); font-size: .95rem; }
+    .gallery {
+      display: grid; gap: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .gallery figure {
+      margin: 0; background: var(--card); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .gallery figcaption {
+      padding: .85rem 1rem; color: var(--muted); font-size: .9rem;
+      border-top: 1px solid var(--line);
+    }
+    .wide { grid-column: 1 / -1; }
+    .cta {
+      margin: 1rem 0 4rem;
+      border-radius: 28px; padding: 2.4rem 1.6rem;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(217,119,87,.32), transparent 35%),
+        radial-gradient(circle at 90% 80%, rgba(139,92,246,.25), transparent 40%),
+        var(--bg-soft);
+      border: 1px solid var(--line); text-align: center;
+    }
+    .cta h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: .7rem; }
+    .cta p { color: var(--muted); max-width: 40rem; margin: 0 auto 1.4rem; }
+    .cta-actions { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; }
+    footer {
+      border-top: 1px solid var(--line); padding: 2.5rem 0 3rem; color: var(--muted);
+    }
+    .footer-inner { display: grid; gap: 1rem; justify-items: center; text-align: center; }
+    .source { font-size: .82rem; opacity: .85; }
+    .source a { color: #f0b39f; text-decoration: underline; }
+    .note {
+      margin-top: 1rem; padding: 1rem 1.15rem; border-radius: 14px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--line);
+      color: var(--muted); font-size: .92rem;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .split, .pricing, .gallery { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .stats { grid-template-columns: 1fr; }
+      .hero { padding-top: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark">F</span>
+        <span>Claude Fable 5.2</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#specs">规格</a>
+        <a href="#safety">安全与风格</a>
+        <a href="#cases">实测案例</a>
+        <a href="#apple">苹果静安店</a>
+      </nav>
+      <a class="btn btn-primary" href="https://claude.ai" target="_blank" rel="noopener">打开 Claude</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow"><span class="dot"></span> Anthropic · 全渠道正式上线</div>
+          <h1>ClaudeFable五点二<br /><span>刚刚上线！</span></h1>
+          <p class="lead">凌晨 3 点，Claude Fable 5.2 正式发布。1M 上下文、输出最高 128K，整体降价约 20%，误拦截显著减少；在审美、动效与前端细节上，一次直出就能把人看愣。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://claude.ai" target="_blank" rel="noopener">在 Claude 体验</a>
+            <a class="btn btn-ghost" href="https://claude.ai/download" target="_blank" rel="noopener">下载桌面端</a>
+            <a class="btn btn-ghost" href="https://www.anthropic.com" target="_blank" rel="noopener">访问 Anthropic</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>1M Token</strong><span>上下文窗口</span></div>
+            <div class="stat"><strong>降价 20%</strong><span>相对 Fable 5.1</span></div>
+            <div class="stat"><strong>AA 65</strong><span>指数登顶 SOTA</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="https://upload.maynor1024.live/file/1794273304310_00.png" alt="Claude 桌面端已出现 Fable 5.2" />
+          <div class="badge">桌面端已可见 · 全渠道上线</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="specs">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Specs & Pricing</div>
+          <h2>更长上下文，更便宜一点，更快一点</h2>
+          <p>Fable 5.2 仍是 100 万 Token 上下文，最大输出 128K Token，知识截止到 2026 年 6 月。输入 $8 / 百万 Token，输出 $40 / 百万 Token；官方称速度最多比 5.1 快 30%。</p>
+        </div>
+        <div class="pricing">
+          <div class="price-card">
+            <span>上下文 / 输出</span>
+            <strong>1M · 128K</strong>
+            <span>知识截止 2026 年 6 月</span>
+          </div>
+          <div class="price-card">
+            <span>价格（每百万 Token）</span>
+            <strong>$8 入 / $40 出</strong>
+            <span>相对 5.1 整体约降 20%</span>
+          </div>
+          <div class="price-card">
+            <span>会员权益</span>
+            <strong>Pro 限时试用</strong>
+            <span>Ultra 额度重置至次年 3 月 8 日</span>
+          </div>
+        </div>
+        <div class="pill-row">
+          <span class="pill">全渠道上线</span>
+          <span class="pill">Pro 一周临时权限</span>
+          <span class="pill">Ultra 额度重置</span>
+          <span class="pill">最多快 30%</span>
+          <span class="pill">出手必 SOTA</span>
+        </div>
+        <div class="feature-banner" style="margin-top:1.6rem">
+          <img src="https://upload.maynor1024.live/file/1794273304978_02.png" alt="Anthropic 主力模型价格对比" />
+        </div>
+        <div class="split">
+          <div class="card">
+            <img src="https://upload.maynor1024.live/file/1794273308378_01.png" alt="Ultra 额度重置通知" />
+            <div class="card-body">
+              <h3>Ultra 用户收到额度重置</h3>
+              <p>200 刀 Ultra 订阅用户获得一次 Fable 额度重置机会，有效期到次年 3 月 8 日；20 刀 Pro 会员本周可临时使用 Fable 5.2。</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://upload.maynor1024.live/file/1794273302621_04.png" alt="测试前额度剩余约 30%" />
+            <div class="card-body">
+              <h3>测试前额度还剩 30%</h3>
+              <p>作者以 Ultra 会员跑完约 10 个任务后，额度从约 30% 推到 94%，近 4 小时烧掉约 24% 额度——强，也贵。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="safety">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Safety & Voice</div>
+          <h2>误伤少了，也终于更说人话了</h2>
+          <p>官方称误拦截比 5.1 少约 55%（网络安全类约少 60%，生物类约少 40%）。输出风格继承了 Opus 5.5 的交流感，不再满嘴黑话。</p>
+        </div>
+        <div class="feature-banner">
+          <img src="https://upload.maynor1024.live/file/1794273301850_07.png" alt="Fable 5.2 回复风格示例" />
+        </div>
+        <div class="note">
+          经典对比段子仍在：遇到「每周手工合并 20 个 Excel」时，GPT 会写鼠标脚本；Claude 会反问你为什么不直接写 SQL 接数据源——更适合希望模型能指出更好做法的人。
+        </div>
+        <div class="split" style="margin-top:1.5rem">
+          <div class="card">
+            <img src="https://upload.maynor1024.live/file/1794273305507_09.png" alt="AA 指数 65 分登顶" />
+            <div class="card-body">
+              <h3>AA 指数 65 登顶</h3>
+              <p>跑分基本碾压，Fable 系列在今天几乎出手即 SOTA；Anthropic 自家基准也可当真参考。</p>
+            </div>
+          </div>
+          <div class="card">
+            <img src="https://upload.maynor1024.live/file/1794273311710_10.png" alt="官方综合跑分对比" />
+            <div class="card-body">
+              <h3>官方综合能力对比</h3>
+              <p>另有硬核实验：Fable 5.2 协调 1000+ 子智能体，连续八天从空文件夹写出可启动的操作系统原型。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Cases · One-shot</div>
+          <h2>审美与动效：一次 Prompt，直出成片</h2>
+          <p>以下 Case 均为一次直出，无二次对话、无后期加工。作者把重点放在视频动效与前端审美——这正是 Opus 5.5 的长板，Fable 5.2 又往前推了一大截。</p>
+        </div>
+        <div class="gallery">
+          <figure class="wide">
+            <img src="https://upload.maynor1024.live/file/1794273323110_11.gif" alt="ChatGPT 四周年致敬动效视频预览" />
+            <figcaption>ChatGPT 四周年致敬片：信息自查、平面、配乐、卡点、动效、剪辑全由 Fable 5.2 完成，事实核对未挑出错。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273311871_13.png" alt="DeepSeek Super-agent 讲解视频画面" />
+            <figcaption>DeepSeek Super-agent 讲解视频：动效细腻度相对 Opus 5.5 再进一步，直出即可。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273307942_16.png" alt="Three.js 3D 场景静态帧" />
+            <figcaption>Three.js 3D 场景：思考摘要里的图片预览就已显出审美优势。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273316917_18.png" alt="3D 场景另一视角" />
+            <figcaption>网页渲染静态帧：材质与构图完成度很高。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273309399_19.png" alt="3D 体素浮岛" />
+            <figcaption>3D 体素浮岛：又一发直出的视觉实验。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="apple">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="kicker">Apple Jing’an</div>
+          <h2>最离谱：上海苹果静安店 3D 网页</h2>
+          <p>任务跑了近两个半小时：先搜报道与真实照片、放大看细节近一小时，再建模一个多小时。学建筑的同事看完直接爆了那个字。</p>
+        </div>
+        <div class="feature-banner">
+          <img src="https://upload.maynor1024.live/file/1794273311741_26.png" alt="Fable 查阅苹果静安店参考照片" />
+        </div>
+        <div class="gallery">
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273318619_27.png" alt="苹果静安店 3D 静态效果" />
+            <figcaption>交卷静态图：材质、空间比例高度还原。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273311854_28.png" alt="苹果静安店室内对比" />
+            <figcaption>与真实室内效果图对比：虽视角不同，还原度惊人。</figcaption>
+          </figure>
+          <figure class="wide">
+            <img src="https://upload.maynor1024.live/file/1794273319673_30.png" alt="圆形下沉广场细节" />
+            <figcaption>细节延伸到室外圆形下沉广场——审美与细节的统治力。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273321050_32.png" alt="额度消耗到约 94%" />
+            <figcaption>约 10 个 Xhigh 任务后，额度卡在约 94%。</figcaption>
+          </figure>
+          <figure>
+            <img src="https://upload.maynor1024.live/file/1794273316793_33.jpg" alt="作者对 Fable 定位的总结" />
+            <figcaption>定位建议：Fable 适合诊断规划与指挥；审美前端给 Opus 5.5，算法后端给即将到来的 GPT-6.2 Sol。</figcaption>
+          </figure>
+        </div>
+        <div class="note">
+          原文作者：卡兹克、AIZ小朱。投稿或爆料：agent@virxact.com。本页主题按用户指定改为「ClaudeFable五点二刚刚上线！」。
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="cta">
+        <h2>ClaudeFable五点二刚刚上线！</h2>
+        <p>全渠道可体验。想追审美与细节上限，就用 Fable；想日常性价比，继续 Opus 5.5 / 即将到来的 GPT-6.2 Sol。世界还有很多好玩的东西没探索完。</p>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="https://claude.ai" target="_blank" rel="noopener">立即打开 Claude</a>
+          <a class="btn btn-ghost" href="https://claude.ai/download" target="_blank" rel="noopener">Claude 桌面端</a>
+          <a class="btn btn-ghost" href="https://mp.weixin.qq.com/s/sKoVHL_oNsik9vtUjr0lHg" target="_blank" rel="noopener">阅读原文</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <p class="source">内容整理自微信公众号「数字生命卡兹克」：
+        <a href="https://mp.weixin.qq.com/s/sKoVHL_oNsik9vtUjr0lHg" target="_blank" rel="noopener">实测Claude Fable 5.2 - 审美与细节的绝对统治。</a>
+      </p>
+      <p class="source">图片托管于自定义图床；仓库内 images/ 保留本地备份。</p>
+    </div>
+  </footer>
+</body>
+</html>
