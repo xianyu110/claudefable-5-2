@@ -1,5 +1,7 @@
 # ClaudeFable五点二刚刚上线！
 
+国内使用渠道：[https://claude-opus.top/](https://claude-opus.top/)
+
 大半夜没等来 GPT-6.2 Sol，刚准备睡，飞书群里 AIHOT 小助手忽然弹了一条消息——这下不用睡了。
 
 凌晨 3 点，Claude Fable 5.2 正式全渠道上线；我的 Claude 桌面端里已经能选到它。同一晚 OpenAI 还在推 200 刀掌机——上周拖着不发 GPT-6.2 Sol 的，这下是有点尴尬了。
@@ -251,3 +253,5 @@ Fable 5.2，上来第一件事，先是搜关于苹果静安店的报道，这�
 又是一个早晨了，祝大家早安、午安、晚安。
 
 今天，也要对世界，充满好奇～
+
+国内使用渠道：[https://claude-opus.top/](https://claude-opus.top/)
